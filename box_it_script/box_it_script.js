@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // making a line
 function drawLine(num) {
     let stringLine = ""
@@ -78,8 +79,8 @@ function drawBarsAround(string) {
 
 function boxIt(arr) {
         
-        let finalArr = []
-        let numLetter = []
+    let finalArr = []
+    let numLetter = []
     for (let i = 0; i < arr.length; i++) {
         numLetter.push((arr[i].length))
         
@@ -133,3 +134,13 @@ function boxIt(arr) {
 boxIt(["niki", "merry", "binondo"])
 
 // boxIt(process.argv[2],process.argv[3],process.argv[4])
+
+
+// stretch
+// to the exicute the file without putting node before the filename I had to put this code at the top of my JS file:
+// #!/usr/bin/env node
+// but when tried exicuting the file I was denied permission. 
+// to give myself permission I entered this line of code into my terminal:
+// chmod 744 box_it_script.js
+// this would give me reading writing and exicuting permission.
+
