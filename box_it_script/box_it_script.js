@@ -120,9 +120,9 @@ function boxIt(arr) {
     // this is for getting everything together
     let finalBox = `${topBorder}`
     for (let i = 0; i < finalArr.length; i++) {
-        if (i != ((finalArr.length)-1)) {
+        if (i != (finalArr.length)-1) {
             finalBox += ((finalArr[i].toString()) + midBorder)
-        } else if (i = (finalArr.length)-1) {
+        } else if (i === (finalArr.length)-1) {
             finalBox += ((finalArr[i].toString()) + botBorder)
         } 
         
