@@ -144,3 +144,18 @@ boxIt(["niki", "merry", "binondo"])
 // chmod 744 box_it_script.js
 // this would give me reading writing and exicuting permission.
 
+// tried to the the last stretch but could not find out how to parse the
+// csv file into an array using neat-csv 
+
+// const fs = require('fs');
+// const path = require('path');
+// const neatCsv = require('neat-csv');
+
+// const filePath = path.join(__box_it_script, 'names.csv');
+// fs.readFile(filePath, (error, data) => {
+//   if (error) {
+//     return console.log('error reading file');
+//   }
+//   neatCsv(data)
+//     .then((parsedData) => console.log(parsedData));
+// });
