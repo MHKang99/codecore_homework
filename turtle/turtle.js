@@ -6,7 +6,8 @@ class Turtle {
         this.y = y;
         this.directionNum = 1;
         this.coordinates = [] //record of positions
-        this.coordinates.push(this.x , this.y) // pushes initial position to the record
+        this.allCoordinates = [] //all coordinates from allPoints()
+        this.coordinates.push(this.x, this.y) // pushes initial position to the record
         
     }
     forward (num) {
@@ -26,7 +27,7 @@ class Turtle {
         if (this.directionNum === 4) {
             this.y += num
         }
-        this.coordinates.push(this.x , this.y)
+        this.coordinates.push(this.x, this.y)
         return this
     }
     left () {
@@ -65,22 +66,69 @@ class Turtle {
         }
         return this
     }
-    
+    allPoints () {
+        for (let i = 0; i < this.coordinates.length; i++) {
+            if (i % 2 === 0) {
+                if (this.coordinates[i] === this.coordinates[i+2]) {
+                    if (this.coordinates[i+1] > this.coordinates[i+3]) {
+                        this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]])
+                        for (let j = 0; j < this.coordinates[i+1] - this.coordinates[i+3]; j++) {
+                        this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]-j]);
+                        }
+                    }else if (this.coordinates[i+1] < this.coordinates[i+3]) {
+                        this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]])
+                        for (let j = 0; j < this.coordinates[i+3] - this.coordinates[i+1]; j++) {
+                        this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]+j]);
+                        }
+                    }
+                } else if (this.coordinates[i] < this.coordinates[i+2]) {
+                    this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]]);
+                    for (let j = 0; j < this.coordinates[i+2] - this.coordinates[i]; j++) {
+                        this.allCoordinates.push([this.coordinates[i]+j+1, this.coordinates[i+1]]);
+                    } 
+                }else if (this.coordinates[i] > this.coordinates[i+2]) {
+                    this.allCoordinates.push([this.coordinates[i], this.coordinates[i+1]]);
+                    for (let j = 0; j < this.coordinates[i] - this.coordinates[i+2]; j++) {
+                        this.allCoordinates.push([this.coordinates[i]-j-1, this.coordinates[i+1]]);
+                    }   
+                }
+            }
+            
+            
+        }
+        this.allCoordinates.push([this.coordinates[this.coordinates.length-2], this.coordinates[this.coordinates.length-1]])
+        for (let j = 0; j < 2; j++) {
+            for (let i = 0; i < this.allCoordinates.length-1; i++) {
+                if (this.allCoordinates[i][0] === this.allCoordinates[i+1][0] && this.allCoordinates[i][1] === this.allCoordinates[i+1][1]) {
+                    this.allCoordinates.splice(i,1)
+                    
+                }
+                
+            }
+            
+        }
+        return this.allCoordinates
+    }
 }
 
 let myTurtle = new Turtle(0,4)
-// console.log(myTurtle.forward(5).right().forward(5).right().forward(5).right().forward(5))
-console.log(myTurtle.forward(3)
-.left()
-.forward(3)
-.right()
-.forward(5)
-.right()
-.forward(8)
-.right()
-.forward(5)
-.right()
-.forward(3)
-.left()
-.forward(3))
+// console.log(myTurtle.forward(5).right().forward(5).right().forward(5).right().forward(5).allPoints())
+// console.log(myTurtle.forward(3).left().forward(3).allPoints())
+
+
+// console.log(myTurtle
+// .forward(3)
+// .left()
+// .forward(3)
+// .right()
+// .forward(5)
+// .right()
+// .forward(8)
+// .right()
+// .forward(5)
+// .right()
+// .forward(3)
+// .left()
+// .forward(3)
+// .allPoints())
 
