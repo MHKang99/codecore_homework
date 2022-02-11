@@ -66,7 +66,7 @@ class Turtle {
         }
         return this
     }
-    allPoints () {
+    print () {
         for (let i = 0; i < this.coordinates.length; i++) {
             if (i % 2 === 0) {
                 if (this.coordinates[i] === this.coordinates[i+2]) {
@@ -107,28 +107,62 @@ class Turtle {
             }
             
         }
-        return this.allCoordinates
+        
+        const ySortedArr = this.allCoordinates.sort(function(a, b) { 
+            return a[1] - b[1];
+          })
+        let xSortedArr = this.allCoordinates.sort();
+        
+         
+        
+        let grid = [];
+        for (let i = 0; i <= ySortedArr[ySortedArr.length-1][1]; i++) {
+            
+            let lineLength = [];
+            for (let j = 0; j < xSortedArr[xSortedArr.length-1][0]; j++) {
+                if (j === xSortedArr[xSortedArr.length-1][0]-1) {
+                    lineLength.push("#") ;
+                    lineLength.push("#") ;
+                }
+                lineLength.push("#") 
+                
+            }
+            grid.push(lineLength)
+            
+        }
+        
+        for (let i = 0; i <= ySortedArr[ySortedArr.length-1][1]; i++) {
+            for (let j = 0; j < ySortedArr.length; j++) {
+                if (i === ySortedArr[j][1]) {
+                grid[i].splice(ySortedArr[j][0],1,1)
+                }
+                
+            }
+            
+            console.log(...grid[i])
+        }
     }
+    
 }
 
-let myTurtle = new Turtle(0,4)
-// console.log(myTurtle.forward(5).right().forward(5).right().forward(5).right().forward(5).allPoints())
-// console.log(myTurtle.forward(3).left().forward(3).allPoints())
+let myTurtle = new Turtle(0,4);
+// myTurtle.forward(5).right().forward(5).right().forward(5).right().forward(5).print();
+// myTurtle.forward(3).left().forward(3).print();
 
 
-// console.log(myTurtle
-// .forward(3)
-// .left()
-// .forward(3)
-// .right()
-// .forward(5)
-// .right()
-// .forward(8)
-// .right()
-// .forward(5)
-// .right()
-// .forward(3)
-// .left()
-// .forward(3)
-// .allPoints())
+myTurtle
+.forward(3)
+.left()
+.forward(3)
+.right()
+.forward(5)
+.right()
+.forward(8)
+.right()
+.forward(5)
+.right()
+.forward(3)
+.left()
+.forward(3)
+.print()
 
