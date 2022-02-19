@@ -1,10 +1,35 @@
 const fs = require("fs");
 const readline = require("readline");
-
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 })
+
+
+fs.readFile(`./${process.argv[2]}`, (err, data) => { // can use ./${process.argv[2]} to get the json file since its in the same directory
+    if (err) throw err;
+    const jsonObj = (JSON.parse(data));
+    
+
+    parsedFile(jsonObj)
+  });
+
+function parsedFile (jsonObj) {
+    console.log(jsonObj[0].completed)
+    for (let i = 0; i < jsonObj.length; i++) {
+        if (jsonObj[i].completed === true) {
+            list.push(`[✓] ${jsonObj[i].title}`)
+        } else {
+            list.push(`[ ] ${jsonObj[i].title}`)
+        }
+        
+    }
+  }
+
+
+
+
+
 
 // must make with functions
 
@@ -16,7 +41,7 @@ let toDoCLI = function () {
     view();
     
     function view() {
-        rl.question("(v) View | (n) New | (cX) Complete | (dX) Delete | (q) Quit\n",(answer)=> {
+        rl.question("(v) View | (n) New | (cX) Complete | (dX) Delete | (s) Save | (q) Quit\n",(answer)=> {
             if (answer === 'v') {
                 if (list.length === 0) {
                     console.log("List is empty...");

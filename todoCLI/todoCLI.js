@@ -6,6 +6,31 @@ const rl = readline.createInterface({
     output: process.stdout,
 })
 
+//---------------- first stretch -----------------
+fs.readFile(`./${process.argv[2]}`, (err, data) => {
+    if (err) throw err;
+    const jsonObj = (JSON.parse(data)); // to parse the json file so it will be a JS object
+    
+
+    parsedFile(jsonObj) // calling the function to add object into list since it runs after the page has been read
+  });
+
+function parsedFile (jsonObj) { //function that adds the json file content to the list. has to run inside fs.readfile
+    for (let i = 0; i < jsonObj.length; i++) {
+        if (jsonObj[i].completed === true) {
+            list.push(`[✓] ${jsonObj[i].title}`)
+        } else {
+            list.push(`[ ] ${jsonObj[i].title}`)
+        }
+        
+    }
+  }
+
+
+
+
+
+
 // --------------made with functions---------------
 
 let list = []; // storage for added list items 
