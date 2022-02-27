@@ -1,0 +1,76 @@
+.form-group {
+    margin: 1em;
+}
+.img {
+    width: 3em;
+    height: 3em;
+}
+.newCohort {
+    margin: 1em;
+    position: absolute;
+    right: 0px;
+}
+.navbar {
+    margin: 1em;
+}
+.nav-link {
+    color: rgb(57, 202, 238); margin-left: 1em;
+}
+.welcome {
+    margin: 1em;
+}
+.card {
+    margin: 1em;
+}
+.showSingle {
+    
+    
+    left: 0px;
+}
+.form-check {
+    margin: 1em;
+}
+.method {
+    margin: 0.7em;
+}
+hr {
+    width: calc(100% - 50pt);
+    align-self: center;
+}
+.card-body hr{
+    width: 100%;
+}
+.assign {
+    width: calc(100% - 25pt);
+    margin: 1em;
+    align-self: center;
+}
+.hidden {
+    display: none;
+}
+
+.edit_btn{
+    margin-left: 12.5pt;
+}
+
+form[action="delete"] input{
+    margin-top: -50pt;
+    margin-left: 50pt;
+}
+
+#card-body-top, #padded{
+    margin-left: 12.5pt;
+}
+
+.member-index{
+    position: absolute;
+}
+
+.member-info{
+    margin-left: 36pt;
+}
+
+.navbar-nav{
+    position: absolute;
+    right: 25pt;
+}

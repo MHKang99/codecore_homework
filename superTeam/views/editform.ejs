@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') %> 
+
+<h1>Edit Post</h1>
+<form action="editCohort" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <div class='form-control'>
+        <input type="text" class='form-control' name='name' placeholder='What is your cohort name?' value="<%= cohort ? cohort.name : '' %>"/>
+    </div>
+    <div class='form-group'>
+        <input type="url" class='form-control' name='img_url' placeholder='e.g. http://imgurl.com/myPic.jpg' value="<%= cohort ? cohort.img_url : '' %>"/>
+    </div>
+    <div class='form-group'>
+        <textarea class='form-control'  name='member' placeholder="billy,bob,joe,sam etc..." cols='60' rows='5' >
+            <%- cohort ? cohort.member.trim() : '' %>
+        </textarea> 
+    </div>
+    <input type="submit" value="Edit Cohort">
+</form>
+
+</body>
+</html>
